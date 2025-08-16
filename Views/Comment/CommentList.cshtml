@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TypicalTechTools.Models.Comment>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Comments";
+
+    string currentSessionId = Context.Session.Id;
+
+
+
+    int productId = int.Parse(Context.Request.RouteValues["id"]?.ToString() ?? "0");
+    
+    // retrieve the Authentication status from the session
+    string authStatus = Context.Session.GetString("Authenticated");
+    
+    // use a flag to indicate whether or not the user is logged in
+    bool loggedIn = !String.IsNullOrEmpty(authStatus) && authStatus.Equals("True");
+}
+
+
+    <h1>Comments for Product code: @productId</h1>
+
+    @if (TempData["Message"] != null)
+{
+    <div class="alert alert-warning">
+        @TempData["Message"]
+    </div>
+}
+
+@if (User.Identity.IsAuthenticated)
+
+{
+    <p>
+        @Html.ActionLink("Create New Comment", "Create", "Comment", new { productId = @productId }, new { @class = "btn btn-primary" })
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentText)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @Html.HiddenFor(modelItem => item.CommentId)
+                @Html.HiddenFor(modelItem => item.ProductId)
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentText)
+                </td>
+                <td>
+                    @if (item.CanEdit(currentSessionId))
+
+                    {
+                                <a asp-action="Edit" asp-route-id="@item.CommentId" class="btn btn-primary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.CommentId" class="btn btn-danger">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back to Products</a>
+</p>
+

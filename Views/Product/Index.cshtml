@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mb-3">
+    <h1 class="text-white">Products</h1>
+
+    @if (User.IsInRole("ADMIN"))
+
+    {
+        <a asp-action="Create" class="btn btn-primary mt-2">Create New Product</a>
+    }
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var product in Model)
+
+        {
+            <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                <div class="card shadow text-center w-100">
+                    <div class="card-body">
+                        <h4 class="card-title">@product.ProductName</h4>
+                        <h5 class="card-subtitle mb-2 text-muted">$@product.ProductPrice</h5>
+                        <p class="card-text" style="min-height: 100px;">@product.ProductDescription</p>
+                        <small>Product Code: @product.ProductId</small><br />
+                        <small>Last updated: @product.UpdatedDate?.ToString("dd/MM/yyyy HH:mm")</small>
+                        <div class="mt-3">
+                            @Html.ActionLink("Comments", "CommentList", "Comment", new { id = product.ProductId }, new { @class = "btn btn-primary m-1" })
+                            @Html.ActionLink("View Details", "Details", "Product", new { id = product.ProductId }, new { @class = "btn btn-secondary m-1" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
