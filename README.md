@@ -2,8 +2,6 @@
 
 This project was developed for **Typical Tech Tools**, a client of Uptown IT, as part of an integration and security upgrade. The goal was to migrate the existing file-based website into a **database-driven system** and to implement modern **application security features** (authentication, authorization, encryption, sanitisation).
 
----
-
 ## Features Implemented
 
 ### Database Integration
@@ -42,8 +40,6 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 - Attempted SQL Injection (blocked).  
 - Attempted script injection in comments (blocked).  
 
----
-
 ## Tech Stack
 - **.NET 8** — ASP.NET Core MVC  
 - **Entity Framework Core** — SQL Server  
@@ -51,14 +47,11 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 - **HtmlSanitizer**, CSP — Input/Output protection  
 - **AES Encryption** for file handling  
 
----
-
 ## Getting Started
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/<your-username>/TypicalTechTools_NET8.git
-   ```
 
 2. **Database setup**
    - Update `appsettings.Development.json` with your SQL Server connection string:
@@ -68,40 +61,25 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
          "DefaultConnection": "Server=.;Database=TypicalTechTools;Trusted_Connection=True;TrustServerCertificate=True"
        }
      }
-     ```
 
 3. **Apply migrations & run**
    ```bash
    dotnet ef database update
    dotnet run
-   ```
 
 4. **Login**
    - Register a new user.  
    - Assign `Admin` role via seeding or database update for admin features.  
-
----
 
 ## Project Structure
 ```
 /Controllers
 /Models
 /Views
-/Data            # DbContext and migrations
-/Services        # Encryption, file handling
-/wwwroot
-```
+/DataAccess
+/Migrations
+/Services
+/wwwroot (css, js, images, uploads)
+Program.cs
+appsettings.json 
 
----
-
-## Screenshots (to add)
-- Login page  
-- Product list  
-- Add/Edit product  
-- Comments (add/edit/delete)  
-- Encrypted/Decrypted file demo  
-
----
-
-## License
-MIT  
