@@ -44,7 +44,7 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **.NET 8** — ASP.NET Core MVC  
 - **Entity Framework Core** — SQL Server  
 - **ASP.NET Identity** — Authentication & Authorization  
@@ -103,5 +103,5 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 
 ---
 
-## 📄 License
+## License
 MIT  
