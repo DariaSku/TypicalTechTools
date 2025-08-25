@@ -4,7 +4,7 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 
 ---
 
-## 📌 Features Implemented
+## Features Implemented
 
 ### Database Integration
 - Migrated existing product and comment data into a relational database (SQL Server).
@@ -53,7 +53,7 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone the repository**
    ```bash
@@ -82,7 +82,7 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 /Controllers
 /Models
@@ -94,7 +94,7 @@ This project was developed for **Typical Tech Tools**, a client of Uptown IT, as
 
 ---
 
-## 📸 Screenshots (to add)
+## Screenshots (to add)
 - Login page  
 - Product list  
 - Add/Edit product  
